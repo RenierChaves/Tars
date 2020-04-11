@@ -7,5 +7,5 @@
 		#define TARS_API __declspec(dllimport)
 	#endif
 #else
-	#error Tars only support Windows!
+	#error Tars only supports Windows!
 #endif

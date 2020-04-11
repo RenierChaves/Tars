@@ -12,7 +12,7 @@ namespace Tars {
 		void Run();
 	};
 
-	// To be defined in CLI
+	// To be defined in CLIENT
 	Application* CreateApplication();
 
 
