@@ -26,7 +26,7 @@ int number = 10;
 int* myPointer = &number; // Outputs 0x6dfed4
 ```
 
-However, you can also use the pointer to get the value of the variable, by using the * operator before the pointer variable (the dereference operator):
+However, you can also use the pointer to get the value of the variable, by using the Pointer operator (`*`) before the pointer variable (the Dereference operator):
 ```C++
 int number = 10;  // Variable declaration
 int* myPointer = &number;    // Pointer declaration
