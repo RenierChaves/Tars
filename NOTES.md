@@ -12,7 +12,7 @@ string &meal = food;
 std::cout << food << std::endl;  // Outputs Pizza
 std::cout << meal << std::endl;  // Outputs Pizza
 ```
-When a variable is created in C++, a memory address is assigned to the variable. And when we assign a value to the variable, it is stored in this memory address. To access it, use the & operator, and the result will represent where the variable is stored:
+When a variable is created in C++, a memory address is assigned to the variable. And when we assign a value to the variable, it is stored in this memory address. To access it, use the `&` operator, and the result will represent where the variable is stored:
 ```C++
 string food = "Pizza";
 
