@@ -20,13 +20,13 @@ std::cout << &food; // Outputs 0x6dfed4
 ```
 
 ## Pointers
-When a variable is created in C++, a memory address is assigned to the variable. And when we assign a value to the variable, it is stored in this memory address. A pointer however, is a variable that stores the memory address as its value. A pointer variable points to a data type (like int or string) of the same type, and is created with the Pointer operator (`*`). The address of the variable you're working with is assigned to the pointer. To access the memory address of a variable, just use the Reference operator (`&`) before the variable name, and the result will represent where the variable is stored:
+When a variable is created in C++, a memory address is assigned to the variable. And when we assign a value to the variable, it is stored in this memory address. A pointer however, is a variable that stores the memory address as its value. A pointer variable points to a data type (like int or string) of the same type, and is created with the `*` operator. The address of the variable you're working with is assigned to the pointer. To access the memory address of a variable, just use the reference `&` operator before the variable name, and the result will represent where the variable is stored:
 ```C++
 int number = 10;
 int* myPointer = &number; // Outputs 0x6dfed4
 ```
 
-However, you can also use the pointer to get the value of the variable, by using the Pointer operator (`*`) before the pointer variable (the Dereference operator):
+However, you can also use the pointer to get the value of the variable, by using the operator `*` before the pointer variable (the Dereference operator):
 ```C++
 int number = 10;  // Variable declaration
 int* myPointer = &number;    // Pointer declaration
