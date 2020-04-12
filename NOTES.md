@@ -1,7 +1,7 @@
 # C++
 
 ## #include
-You specify wich file do you want to include and the preprocessor will open that file, read all of its content and just paste it into the file where your wrote your `#include` statement.
+You specify wich file do you want to include and the preprocessor will open that file, read all of its content and just paste it into the file where you wrote your `#include` statement.
 
 ## Reference
 A reference variable is a "reference" to an existing variable, and it is created with the `&` operator.
