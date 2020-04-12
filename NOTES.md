@@ -20,7 +20,7 @@ std::cout << &food; // Outputs 0x6dfed4
 ```
 
 ## Pointers
-When a variable is created in C++, a memory address is assigned to the variable. And when we assign a value to the variable, it is stored in this memory address. A pointer however, is a variable that stores the memory address as its value. A pointer variable points to a data type (like int or string) of the same type, and is created with the * operator. The address of the variable you're working with is assigned to the pointer. To access the memory address of a variable, just use the Reference operator (`&`) before the variable name, and the result will represent where the variable is stored:
+When a variable is created in C++, a memory address is assigned to the variable. And when we assign a value to the variable, it is stored in this memory address. A pointer however, is a variable that stores the memory address as its value. A pointer variable points to a data type (like int or string) of the same type, and is created with the Pointer operator (`*`). The address of the variable you're working with is assigned to the pointer. To access the memory address of a variable, just use the Reference operator (`&`) before the variable name, and the result will represent where the variable is stored:
 ```C++
 int number = 10;
 int* myPointer = &number; // Outputs 0x6dfed4
@@ -53,8 +53,8 @@ std::cout << myPointer << std::endl // Outputs 0x6dfed4
 
 ## Engine Properties Configuration
 All the following configurations must be done inside ***Debug*** Configuration:
-- Right-Button in your project and select ***Properties*** >> ***Configuration Manager*** >> ***Active Solution Platform*** >> ***<Edit...>*** and remove x86 platform.
-- Right-Button in your project and select ***Properties*** >> ***Configuration Manager*** >> ***Project Context*** >> ***Platform*** >> ***<Edit...>*** and remove x86 platform.
+- Right-Button in your project and select ***Properties*** >> ***Configuration Manager*** >> ***Active Solution Platform*** >> ***Edit...*** and remove x86 platform.
+- Right-Button in your project and select ***Properties*** >> ***Configuration Manager*** >> ***Project Context*** >> ***Platform*** >> ***Edit...*** and remove x86 platform.
 
 All the following configuration must be done inside ***All Configuration***:
 - Right-Button in your project and select ***Properties*** >> ***Configuration Properties*** >> ***General*** and set ***Configuration Type*** to `Dynamic Library (.dll)`.
@@ -63,8 +63,8 @@ All the following configuration must be done inside ***All Configuration***:
 
 ## SandBox Properties Configuration
 All the following configurations must be done inside ***Debug*** Configuration:
-- Right-Button in your project and select ***Properties*** >> ***Configuration Manager*** >> ***Active Solution Platform*** >> ***<Edit...>*** and remove x86 platform.
-- Right-Button in your project and select ***Properties*** >> ***Configuration Manager*** >> ***Project Context*** >> ***Platform*** >> ***<Edit...>*** and remove x86 platform.
+- Right-Button in your project and select ***Properties*** >> ***Configuration Manager*** >> ***Active Solution Platform*** >> ***Edit...*** and remove x86 platform.
+- Right-Button in your project and select ***Properties*** >> ***Configuration Manager*** >> ***Project Context*** >> ***Platform*** >> ***Edit...*** and remove x86 platform.
 
 All the following configuration must be done inside ***All Configuration***:
 - Right-Button in your project and select ***Properties*** >> ***Configuration Properties*** >> ***General*** and set ***Output Directory*** inside ***General*** tree to `$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\`.
