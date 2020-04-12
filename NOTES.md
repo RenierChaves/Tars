@@ -20,7 +20,7 @@ std::cout << &food; // Outputs 0x6dfed4
 ```
 
 ## Pointers
-When a variable is created in C++, a memory address is assigned to the variable. And when we assign a value to the variable, it is stored in this memory address. A pointer however, is a variable that stores the memory address as its value. A pointer variable points to a data type (like int or string) of the same type, and is created with the `*` operator. The address of the variable you're working with is assigned to the pointer. To access the memory address of a variable, just use the reference `&` operator before the variable name, and the result will represent where the variable is stored:
+When a variable is created in C++, a memory address is assigned to the variable. And when we assign a value to the variable, it is stored in this memory address. A pointer however, is a variable that stores the memory address as its value. A pointer variable points to a data type (like int or string) of the same type, and is created with the `*` operator. The address of the variable you're working with is assigned to the pointer. To access the memory address of a variable, just use the reference `&` operator before the variable, and the result will represent where the variable is stored:
 ```C++
 int number = 10;
 int* myPointer = &number; // Outputs 0x6dfed4
@@ -49,6 +49,9 @@ std::cout << number << std::endl; // Outputs 5
 std::cout << myPointer << std::endl // Outputs 0x6dfed4
 ```
 
+## Macro - C++
+A macro is a fragment of code which has been given a name. Whenever the name is used, it is replaced by the contents of the macro. Preprocessor directives are lines included in the code of programs preceded by a hash sign (#).
+
 # Tars Engine
 
 ## Engine Properties Configuration
@@ -75,7 +78,5 @@ All following configuration must be done inside ***All Configuration***:
 - Right-Button in your project and select ***Properties*** >> ***Configuration Manager*** >> ***C/C++*** and set ***Preprocessor Definitions*** to `<your-Macro-name>;`
 
 # Tars
-## Macro - C++
-A macro is a fragment of code which has been given a name. Whenever the name is used, it is replaced by the contents of the macro. Preprocessor directives are lines included in the code of programs preceded by a hash sign (#).
 ### Macro in SandBox explained
 When SandBox is compiled, it will run the EntryPoint.h because of the TARS_PLATFORM_WINDOWS Macro. The compiler will be notified that Tars::CreateApplication (because of the extern key-word) is already defined somewhere else, leading him to SandBox.cpp where the definition is settled.
