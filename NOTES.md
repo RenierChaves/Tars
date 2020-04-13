@@ -3,6 +3,11 @@
 ## #include
 You specify which file do you want to include and the preprocessor will open that file, read all of its content and just paste it into the file where you wrote your `#include` statement.
 
+## Header Files
+The declaration tells the compiler whether the element is an int, a double, a function, a class or some other thing. Furthermore, each name must be declared (directly or indirectly) in every .cpp file in which it is used. When you compile a program, each .cpp file is compiled independently into a compilation unit. The compiler has no knowledge of what names are declared in other compilation units. That means that if you use a class or function or global variable, you must provide a declaration of that thing in each additional .cpp file that uses it. Each declaration of that thing must be exactly identical in all files. A slight inconsistency will cause errors, or unintended behavior, when the linker attempts to merge all the compilation units into a single program.
+ 
+In a header file, we just declare our function or variable or class, we do not define it, we do not say what it does. When we declare a function in a header file and include this header file in our .cpp file using #include we are telling the compiler that we want to use that function but we do not want to define it because it is already defined in some other file.
+
 ## Reference
 A reference variable is a "reference" to an existing variable, and it is created with the `&` operator.
 ```C++
