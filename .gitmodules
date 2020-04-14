@@ -1,0 +1,3 @@
+[submodule "Tars/vendor/spdlog"]
+	path = Tars/vendor/spdlog
+	url = https://github.com/gabime/spdlog
