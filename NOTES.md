@@ -110,8 +110,8 @@ All following configuration must be done inside ***All Configuration***:
 
 # Tars
 
-## Entry Point
-**EntryPoint.h**
+## Entry Point Explained
+To understand how an entry point works, need to take a look into two files, first the **EntryPoint.h** file:
 ```C++
 #pragma once
 
@@ -127,7 +127,7 @@ int main(int argc, char** argv) {
 
 #endif
 ```
-**SandboxApp.cpp**
+And the **SandboxApp.cpp** file:
 ```C++
 #include <Tars.h>
 
@@ -148,16 +148,35 @@ Tars::Application* Tars::CreateApplication() {
 ```
 It is important to remember that this EntryPoint.h file was [included](##include) in the Tars.h file, which was included in SandboxApp.cpp. Therefore, the entire content of EntryPoint.h is included in SandboxApp.cpp too.
 
-The EntryPoint.h file is the Entry Point of our program, which is where we will create a new application. So let's take a look in the EntryPoint.h file:
-- The `#ifdef TARS_PLATFORM_WINDOWS` is an if statement, which means that if the Macro `TARS_PLATFORM_WINDOWS` is true the code inside its scope will be compiled. 
-- The `extern Tars::Application* Tars::CreateApplication()` statement tells the compiler that the `Tars::CreateApplication` function is defined somewhere else. If we take a close look in the SandboxApp.cpp, the `Tars::CreateApplication` is defined there and returns a `new SandBox()` instance.
-- Inside `main()` function, the `auto` keyword tells the compiler to automatically define the variable’s type from the initializer’s type. So, that means that we do not know which type of application (in C++, class name is a type) our client will create, so its much easier to tell the compiler to define the variable type when its created.
-- The `app->Run()` statement uses `->`, because the CreateApplication function return a pointer to the client application (a class), remember that: 
+The EntryPoint.h file is the Entry Point of our program, which is where we will create a new application. So let's take a look into EntryPoint.h file:
+
+### `TARS_PLATFORM_WINDOWS`
+The `#ifdef TARS_PLATFORM_WINDOWS` is an if statement, which means that if the Macro `TARS_PLATFORM_WINDOWS` is true the code inside its scope will be compiled. 
+```C++
+#ifdef TARS_PLATFORM_WINDOWS
+
+// Code in here...
+
+#endif
+```
+
+### `extern Tars::CreateApplication()`
+The `extern Tars::Application* Tars::CreateApplication()` statement tells the compiler that the `Tars::CreateApplication` function is defined somewhere else. If we take a close look in the SandboxApp.cpp, the `Tars::CreateApplication` is defined there and returns a `new SandBox()` instance.
+```C++
+extern Tars::Application* Tars::CreateApplication();
+```
+
+### `main()`
+Notice that SandboxApp.cpp does not have a main() function, this is because its main function will be implemented after the compiling process. Remember that, we wrote a main() function in EntryPoint.h. That function will be included here, after the compiling process finish. So when we run the program there will be a main() to start the application.
+
+Inside `main()` function, the `auto` keyword tells the compiler to automatically define the variable’s type from the initializer’s type. So, that means that we do not know which type of application (in C++, class name is a type) our client will create, so its much easier to tell the compiler to define the variable type when its created.
+
+The `app->Run()` statement uses `->`, because the CreateApplication function return a pointer to the client application (a class), remember that: 
 > Members of an object can be accessed directly from a pointer by using the arrow operator (`->`).
-
-Notice that SandboxApp.cpp does not have a `main()` function, this is because its main function will be implemented after the compiling process. Remember that, we wrote a `main()` function in EntryPoint.h. That function will be [included](##include) here, after the compiling process finish. So when we run the program there will be a `main()` to start the application.
-
-
-
-## Macros in Tars
-- When SandBox is compiled, it will run the EntryPoint.h because of the TARS_PLATFORM_WINDOWS Macro. The compiler will be notified that Tars::CreateApplication (because of the `extern` keyword) is already defined somewhere else, leading him to SandboxApp.cpp where the definition is settled.
+```C++
+int main(int argc, char** argv) {
+	auto app = Tars::CreateApplication();
+	app->Run();
+	delete app;
+}
+```
