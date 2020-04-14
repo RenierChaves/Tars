@@ -140,7 +140,7 @@ Tars::Application* Tars::CreateApplication() {
 ```
 
 ### `main()` function
-The main function from SandboxApp.cpp is declared and defined in the EntryPoint.h file. After the compiling process is finished, all content of the files included in Tars.h will be pasted here because of the `#include <Tars.h>` statement. So when the program runs the SandboxApp.cpp the main function declared in the EntryPoint.h file will be here.
+The main function from SandboxApp.cpp is declared and defined in the EntryPoint.h file. After the compiling process is finished, all content of the files included in Tars.h will be pasted here because of the `#include <Tars.h>` statement. So when the program runs the SandboxApp.cpp the main function declared in the EntryPoint.h file will be there.
 ```C++
 // EntryPoint.h
 int main(int argc, char** argv) {
@@ -149,5 +149,5 @@ int main(int argc, char** argv) {
 	delete app;
 }
 ```
-Inside the `main()` function, the `auto` keyword tells the compiler to automatically define the variable’s type when the initialized value is assigned. We do not know which type of application (remember that in C++ a class is a type) our client will create, so it's much easier to tell the compiler to define by itself the variable type when its created.
+Inside the `main()` function, the `auto` keyword tells the compiler to automatically define the variable’s type when the initialized value is assigned. We do not know the return type of `Tars::CreateApplication()` because it's defined in another file, so it's much easier to tell the compiler to define by itself the variable type when its created.
 
