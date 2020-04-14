@@ -74,7 +74,7 @@ std::cout << "The value of x is " << x << ", setValue() modified x." << std::end
 // Outputs: The value of x is 5, setValue() modified x
 ```
 
-### Pointer and Classes
+### Pointers and Classes
 Objects can also be pointed to by pointers: Once declared, a class becomes a valid type, so it can be used as the type pointed to by a pointer. Similarly as with plain data structures, the members of an object can be accessed directly from a pointer by using the arrow operator (`->`).
 
 ## Macro - C++
@@ -110,48 +110,12 @@ All following configuration must be done inside ***All Configuration***:
 
 # Tars
 
-## Entry Point Explained
-To understand how an entry point works, need to take a look into two files, first the **EntryPoint.h** file:
-```C++
-#pragma once
+## Entry Point
+To fully understand how a entry point works, you have to remember that with an `#include` statement you:
+> You specify which file do you want to include and the preprocessor will open that file, read all of its content and just paste it into the file where you wrote your `#include` statement.
 
-#ifdef TARS_PLATFORM_WINDOWS
-
-extern Tars::Application* Tars::CreateApplication();
-
-int main(int argc, char** argv) {
-	auto app = Tars::CreateApplication();
-	app->Run();
-	delete app;
-}
-
-#endif
-```
-And the **SandboxApp.cpp** file:
-```C++
-#include <Tars.h>
-
-class SandBox : public Tars::Application {
-public:
-	SandBox() {
-
-	}
-
-	~SandBox() {
-
-	}
-};
-
-Tars::Application* Tars::CreateApplication() {
-	return new SandBox();
-}
-```
-### include
-The EntryPoint.h file was [included](##include) in the Tars.h file, and the Tars.h file was included in SandboxApp.cpp. Therefore, the entire content of EntryPoint.h is included in SandboxApp.cpp too.
-
-
-### `TARS_PLATFORM_WINDOWS`
-The `#ifdef TARS_PLATFORM_WINDOWS` is an if statement, which means that if the Macro `TARS_PLATFORM_WINDOWS` is true the code inside its scope will be compiled. 
+### `#ifdef` statement
+The `#ifdef TARS_PLATFORM_WINDOWS` is an if condition, which means that if the Macro `TARS_PLATFORM_WINDOWS` is true the code inside its scope will be compiled. Every `#ifdef` condition must have a `#endif` statement to define the end of the code block.
 ```C++
 #ifdef TARS_PLATFORM_WINDOWS
 
@@ -160,8 +124,7 @@ The `#ifdef TARS_PLATFORM_WINDOWS` is an if statement, which means that if the M
 #endif
 ```
 
-
-### `extern Tars::Application* Tars::CreateApplication()`
+### `extern` statement
 The `extern` keyword tells the compiler that the `Tars::CreateApplication` function is defined somewhere else. 
 ```C++
 //EntryPoint.h
@@ -175,8 +138,7 @@ Tars::Application* Tars::CreateApplication() {
 }
 ```
 
-
-### `main()`
+### `main()` function
 The SandboxApp.cpp does not have a `main()` function, this is because its main function will be implemented after the compiling process. Remember that, we wrote a main function in EntryPoint.h. That function will be included here, after the compiling process finish. So when we run the program there will be a `main()` to start the application.
 ```C++
 int main(int argc, char** argv) {
@@ -185,8 +147,5 @@ int main(int argc, char** argv) {
 	delete app;
 }
 ```
-Inside that `main()` function, the `auto` keyword tells the compiler to automatically define the variable’s type from the initializer’s type. So, that means that we do not know which type of application (in C++, class name is a type) our client will create, so its much easier to tell the compiler to define the variable type when its created.
-
-The `app->Run()` statement uses `->`, because the CreateApplication function return a pointer to the client application (a class), remember that: 
-> Members of an object can be accessed directly from a pointer by using the arrow operator (`->`).
+Inside the `main()` function, the `auto` keyword tells the compiler to automatically define the variable’s type when the initialized value is assigned. Because we do not know which type of application (remember that in C++ a class is a type) our client will create, its much easier to tell the compiler to define by itself the variable type when its created.
 
