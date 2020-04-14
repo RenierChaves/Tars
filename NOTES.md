@@ -117,6 +117,7 @@ To fully understand how a entry point works, you have to remember that with an `
 ### `#ifdef` statement
 The `#ifdef TARS_PLATFORM_WINDOWS` is an if condition, which means that if the Macro `TARS_PLATFORM_WINDOWS` is true the code inside its scope will be compiled. Every `#ifdef` condition must have a `#endif` statement to define the end of the code block.
 ```C++
+//EntryPoint.h
 #ifdef TARS_PLATFORM_WINDOWS
 
 // Code in here...
@@ -141,6 +142,7 @@ Tars::Application* Tars::CreateApplication() {
 ### `main()` function
 The SandboxApp.cpp does not have a `main()` function, this is because its main function will be implemented after the compiling process. Remember that, we wrote a main function in EntryPoint.h. That function will be included here, after the compiling process finish. So when we run the program there will be a `main()` to start the application.
 ```C++
+// EntryPoint.h
 int main(int argc, char** argv) {
 	auto app = Tars::CreateApplication();
 	app->Run();
