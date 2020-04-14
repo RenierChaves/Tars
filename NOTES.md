@@ -146,9 +146,9 @@ Tars::Application* Tars::CreateApplication() {
 	return new SandBox();
 }
 ```
-It is important to remember that this EntryPoint.h file was [included](##include) in the Tars.h file, which was included in SandboxApp.cpp. Therefore, the entire content of EntryPoint.h is included in SandboxApp.cpp too.
+### include
+The EntryPoint.h file was [included](##include) in the Tars.h file, and the Tars.h file was included in SandboxApp.cpp. Therefore, the entire content of EntryPoint.h is included in SandboxApp.cpp too.
 
-The EntryPoint.h file is the Entry Point of our program, which is where we will create a new application. So let's take a look into EntryPoint.h file:
 
 ### `TARS_PLATFORM_WINDOWS`
 The `#ifdef TARS_PLATFORM_WINDOWS` is an if statement, which means that if the Macro `TARS_PLATFORM_WINDOWS` is true the code inside its scope will be compiled. 
@@ -160,19 +160,24 @@ The `#ifdef TARS_PLATFORM_WINDOWS` is an if statement, which means that if the M
 #endif
 ```
 
-### `extern Tars::CreateApplication()`
-The `extern Tars::Application* Tars::CreateApplication()` statement tells the compiler that the `Tars::CreateApplication` function is defined somewhere else. If we take a close look in the SandboxApp.cpp, the `Tars::CreateApplication` is defined there and returns a `new SandBox()` instance.
+
+### `extern Tars::Application* Tars::CreateApplication()`
+The `extern` keyword tells the compiler that the `Tars::CreateApplication` function is defined somewhere else. 
 ```C++
+//EntryPoint.h
 extern Tars::Application* Tars::CreateApplication();
 ```
+If we take a close look in the SandboxApp.cpp, the `Tars::CreateApplication` is defined there and returns a `new SandBox()` instance.
+```C++
+//SandboxApp.cpp
+Tars::Application* Tars::CreateApplication() {
+	return new SandBox();
+}
+```
+
 
 ### `main()`
-Notice that SandboxApp.cpp does not have a main() function, this is because its main function will be implemented after the compiling process. Remember that, we wrote a main() function in EntryPoint.h. That function will be included here, after the compiling process finish. So when we run the program there will be a main() to start the application.
-
-Inside `main()` function, the `auto` keyword tells the compiler to automatically define the variable’s type from the initializer’s type. So, that means that we do not know which type of application (in C++, class name is a type) our client will create, so its much easier to tell the compiler to define the variable type when its created.
-
-The `app->Run()` statement uses `->`, because the CreateApplication function return a pointer to the client application (a class), remember that: 
-> Members of an object can be accessed directly from a pointer by using the arrow operator (`->`).
+The SandboxApp.cpp does not have a `main()` function, this is because its main function will be implemented after the compiling process. Remember that, we wrote a main function in EntryPoint.h. That function will be included here, after the compiling process finish. So when we run the program there will be a `main()` to start the application.
 ```C++
 int main(int argc, char** argv) {
 	auto app = Tars::CreateApplication();
@@ -180,3 +185,8 @@ int main(int argc, char** argv) {
 	delete app;
 }
 ```
+Inside that `main()` function, the `auto` keyword tells the compiler to automatically define the variable’s type from the initializer’s type. So, that means that we do not know which type of application (in C++, class name is a type) our client will create, so its much easier to tell the compiler to define the variable type when its created.
+
+The `app->Run()` statement uses `->`, because the CreateApplication function return a pointer to the client application (a class), remember that: 
+> Members of an object can be accessed directly from a pointer by using the arrow operator (`->`).
+
