@@ -52,8 +52,8 @@ project "Tars"
 			defines "TARS_DIST"
 			optimize "On"
 
-project "Sandbox"
-	location "Sandbox"
+project "SandBox"
+	location "SandBox"
 	kind "ConsoleApp"
 	language "C++"
 
