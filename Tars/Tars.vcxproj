@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TARS_PLATFORM_WINDOWS;TARS_BUILD_DLL;TARS_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -147,6 +147,10 @@
     <ClInclude Include="src\Tars\Application.h" />
     <ClInclude Include="src\Tars\Core.h" />
     <ClInclude Include="src\Tars\EntryPoint.h" />
+    <ClInclude Include="src\Tars\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Tars\Events\Event.h" />
+    <ClInclude Include="src\Tars\Events\KeyEvent.h" />
+    <ClInclude Include="src\Tars\Events\MouseEvent.h" />
     <ClInclude Include="src\Tars\Log.h" />
   </ItemGroup>
   <ItemGroup>

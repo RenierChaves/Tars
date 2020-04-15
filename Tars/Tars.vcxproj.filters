@@ -19,6 +19,10 @@
     <ClInclude Include="src\Tars\Log.h">
       <Filter>Tars</Filter>
     </ClInclude>
+    <ClInclude Include="src\Tars\Events\Event.h" />
+    <ClInclude Include="src\Tars\Events\KeyEvent.h" />
+    <ClInclude Include="src\Tars\Events\MouseEvent.h" />
+    <ClInclude Include="src\Tars\Events\ApplicationEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Tars\Application.cpp">

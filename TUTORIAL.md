@@ -4,6 +4,7 @@
 ## Header Files
 C++ programs are built in a two-stage process. First, each source file is compiled on its own. The compiler generates intermediate files for each compiled source file. These intermediate files are often called object files -- but they are not to be confused with objects in your code. Once all the files have been individually compiled, it then links all the object files together, which generates the final binary (the program). This is where header files come in. Header files allow you to make the declaration visible to other .cpp files, while keeping the definition in its own .cpp file.
 
+
 ## Reference
 A reference variable is a "reference" to an existing variable, and it is created with the `&` operator.
 ```C++
@@ -71,9 +72,6 @@ std::cout << "The value of x is " << x << ", setValue() modified x." << std::end
 // Outputs: The value of x is 5, setValue() modified x
 ```
 
-### Pointers and Classes
-Objects can also be pointed to by pointers: Once declared, a class becomes a valid type, so it can be used as the type pointed to by a pointer. Similarly as with plain data structures, the members of an object can be accessed directly from a pointer by using the arrow operator (`->`).
-
 
 ## C++ keywords
 
@@ -82,6 +80,9 @@ The `extern` keyword specifies that a variable, function, or template is defined
 
 ### `auto`
 The `auto` keyword tells the compiler to define by itself the variable type when its created.
+
+### `const`
+Declaring a member function with the const keyword specifies that the function is a "read-only" function that does not modify the object for which it is called. A constant member function cannot modify any non-static data members or call any member functions that aren't constant.
 
 
 ## Preprocessor derictives
@@ -106,3 +107,62 @@ These directives allow to include or discard part of the code of a program if a 
 
 ### Error directive
 The `#error` directive aborts the compilation process when it is found, generating a compilation error that can be specified as its parameter.
+
+
+## Classes
+Classes are an expanded concept of data structures: like data structures, they can contain data members, but they can also contain functions as members. An object is an instantiation of a class. In terms of variables, a class would be the type, and an object would be the variable. To create a class, use the `class` keyword:
+```C++
+class MyClass {            // The class
+public:                    // Access specifier
+    int myNum;             // Attribute (int variable)
+    std::string myString;  // Attribute (string variable)
+};
+```
+
+### Access specifier
+Classes have the same format as plain data structures, except that they can also include functions and have these new things called access specifiers. An access specifier is one of the following three keywords: private, public or protected. These specifiers modify the access rights for the members that follow them:
+- `public` - members are accessible from outside the class
+- `private` - members cannot be accessed (or viewed) from outside the class
+- `protected` - members cannot be accessed from outside the class, however, they can be accessed in inherited classes.
+
+### Class Method
+Methods are functions that belongs to the class. There are two ways to define functions that belongs to a class:
+- Inside class definition
+```C++
+class MyClass {             // The class
+public:                     // Access specifier
+    void myMethod() {       // Method/function defined inside the class
+        std::cout << "Hello World!";
+    }
+};
+```
+- Outside class definition
+```C++
+class MyClass {             // The class
+public:                     // Access specifier
+    void myMethod();        // Method/function declaration
+};
+
+// Method/function definition outside the class
+void MyClass::myMethod() {
+    std::cout << "Hello World!";
+}
+```
+
+### Constructor
+A class can include a special function called its **constructor**, which is automatically called whenever a new object of this class is created, allowing the class to initialize member variables or allocate storage. This constructor function is declared just like a regular member function, but with a name that matches the class name and without any return type; not even `void`.
+```C++
+class Person {
+public:
+    person(int age, const char* name) {
+        p_Age = age;
+        p_Name = name;
+    }
+private:
+    p_Age;
+    p_Name;
+};
+```
+
+### Pointers and Classes
+Objects can also be pointed to by pointers: Once declared, a class becomes a valid type, so it can be used as the type pointed to by a pointer. Similarly as with plain data structures, the members of an object can be accessed directly from a pointer by using the arrow operator (`->`).
