@@ -82,7 +82,7 @@ The `extern` keyword specifies that a variable, function, or template is defined
 The `auto` keyword tells the compiler to define by itself the variable type when its created.
 
 ### `const`
-Declaring a member function with the const keyword specifies that the function is a "read-only" function that does not modify the object for which it is called. A constant member function cannot modify any non-static data members or call any member functions that aren't constant.
+Declaring a member function with the `const` keyword specifies that the function is a "read-only" function that does not modify the object for which it is called. A constant member function cannot modify any non-static data members or call any member functions that aren't constant.
 
 
 ## Preprocessor derictives
