@@ -94,7 +94,7 @@ Preprocessor directives are lines included in the code of programs preceded by a
 With `#include` you specify which file do you want to include and the preprocessor opens that file, read all of its content and just paste it into the file where you wrote your `#include` statement.
 
 ### Macro definitions
-To define preprocessor macros we can use #define. Its syntax is:
+To define preprocessor macros we can use `#define`. Its syntax is:
 ```C++
 #define identifier replacement
 ```
