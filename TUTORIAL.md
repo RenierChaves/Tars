@@ -153,7 +153,7 @@ A class can include a special function called its **constructor**, which is auto
 ```C++
 class Person {
 public:
-    person(int age, const char* name) {
+    Person(int age, const char* name) {
         m_Age = age;
         m_Name = name;
     }
