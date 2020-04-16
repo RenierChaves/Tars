@@ -58,7 +58,7 @@ std::cout << test << std::endl; // Outputs 5
 std::cout << myPointer << std::endl // Outputs 0x6dfed4
 ```
 
-### Parameters by Pointers or Reference
+### Parameters by Pointers
 In C++, variables are passed to a function by value. When calling a function with an argument, a new variable is instantiated internally and assigned the value passed in the function call. Any modifications to the value inside the function are performed to this new variable; the variable that was invoked with the function call is unchanged. A function can be written to perform the same task but instead accept a pointer as the argument. This lowers the memory footprint of the program. Unnecessary duplicate variables aren't created. The function can modify the variable's value directly. Any modifications to the variable in the function affect the variable here in this scope too.
 ```c++
 void setValue(int* x) {
@@ -81,7 +81,7 @@ The `extern` keyword specifies that a variable, function, or template is defined
 The `auto` keyword tells the compiler to define by itself the variable type when its created.
 
 ### `const`
-variables declared with `const` added become constants and cannot be altered by the program.
+Variables declared with `const` added become constants and cannot be altered by the program.
 
 
 ## Preprocessor derictives
