@@ -21,7 +21,7 @@ string food = "Pizza";
 std::cout << &food; // Outputs 0x6dfed4
 ```
 
-### Parameters by Reference
+### Parameters by reference
 When a variable is passed by reference, what is passed is no longer a copy, but the variable itself, the variable identified by the function parameter, becomes somehow associated with the argument passed to the function, and any modification on their corresponding local variables within the function are reflected in the variables passed as arguments in the call.
 
 ```c++
@@ -58,7 +58,7 @@ std::cout << test << std::endl; // Outputs 5
 std::cout << myPointer << std::endl // Outputs 0x6dfed4
 ```
 
-### Parameters by Pointers
+### Parameters by pointers
 In C++, variables are passed to a function by value. When calling a function with an argument, a new variable is instantiated internally and assigned the value passed in the function call. Any modifications to the value inside the function are performed to this new variable; the variable that was invoked with the function call is unchanged. A function can be written to perform the same task but instead accept a pointer as the argument. This lowers the memory footprint of the program. Unnecessary duplicate variables aren't created. The function can modify the variable's value directly. Any modifications to the variable in the function affect the variable here in this scope too.
 ```c++
 void setValue(int* x) {
@@ -124,7 +124,7 @@ Classes have the same format as plain data structures, except that they can also
 - `private` - members cannot be accessed (or viewed) from outside the class
 - `protected` - members cannot be accessed from outside the class, however, they can be accessed in inherited classes.
 
-### Class Method
+### Class method
 Methods are functions that belongs to the class. There are two ways to define functions that belongs to a class:
 - Inside class definition
 ```C++
@@ -163,10 +163,10 @@ private:
 };
 ```
 
-### Pointers and Classes
+### Pointers and classes
 Objects can also be pointed to by pointers: Once declared, a class becomes a valid type, so it can be used as the type pointed to by a pointer. Similarly as with plain data structures, the members of an object can be accessed directly from a pointer by using the arrow operator (`->`).
 
-### Objects and Member functions `const`
+### Objects and member cuntions `const`
 `const` objects are limited to access only member functions marked as `const`. Declaring a member function with the `const` keyword specifies that the function is a "read-only" function that does not modify the object for which it is called. A constant member function can only modify static data members and call only constant member functions. Note that `const` can be used to qualify the type returned by a member function. This `const` is not the same as the one which specifies a member as `const`. Both are independent and are located at different places in the function declaration:
 ```C++
 int get() const {return x;}         // const member function
