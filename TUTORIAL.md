@@ -167,4 +167,9 @@ private:
 Objects can also be pointed to by pointers: Once declared, a class becomes a valid type, so it can be used as the type pointed to by a pointer. Similarly as with plain data structures, the members of an object can be accessed directly from a pointer by using the arrow operator (`->`).
 
 ### Objects and Methods `const`
-`const` objects are limited to access only member functions marked as `const`. Declaring a member function with the `const` keyword specifies that the function is a "read-only" function that does not modify the object for which it is called. A constant member function can only modify static data members and call only constant member functions.
+`const` objects are limited to access only member functions marked as `const`. Declaring a member function with the `const` keyword specifies that the function is a "read-only" function that does not modify the object for which it is called. A constant member function can only modify static data members and call only constant member functions. Note that `const` can be used to qualify the type returned by a member function. This `const` is not the same as the one which specifies a member as `const`. Both are independent and are located at different places in the function declaration:
+```C++
+int get() const {return x;}         // const member function
+const int get() {return x;}         // member function returning a const
+const int get() const {return x;}   // const member function returning a const
+```
