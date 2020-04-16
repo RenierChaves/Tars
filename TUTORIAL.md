@@ -21,6 +21,20 @@ string food = "Pizza";
 std::cout << &food; // Outputs 0x6dfed4
 ```
 
+### Parameters by Reference
+When a variable is passed by reference, what is passed is no longer a copy, but the variable itself, the variable identified by the function parameter, becomes somehow associated with the argument passed to the function, and any modification on their corresponding local variables within the function are reflected in the variables passed as arguments in the call.
+
+```c++
+void setValue(int& x) {
+    x = 5;
+}
+
+int x = 3;
+setValue( x );
+std::cout << "The value of x is " << x << ", setValue() modified x." << std::endl;
+// Outputs: The value of x is 5, setValue() modified x
+```
+
 
 ## Pointers
 When a variable is created in C++, a memory address is assigned to the variable. And when we assign a value to the variable, it is stored in this memory address. A pointer, however, is a variable that stores the memory address as its value. A pointer variable points to a data type (like int or string) of the same type and is created with the `*` operator. The address of the variable you're working with is assigned to the pointer. To access the memory address of a variable, just use the reference `&` operator before the variable, and the result will represent where the variable is stored:
@@ -45,8 +59,7 @@ std::cout << myPointer << std::endl // Outputs 0x6dfed4
 ```
 
 ### Parameters by Pointers or Reference
-In C++, variables are passed to a function by value. When calling a function with an argument, a new variable is instantiated internally and assigned the value passed in the function call. Any modifications to the value inside the function are performed to this new variable; the variable that was invoked with the function call is unchanged.
-A function can be written to perform the same task but instead accept a pointer as the argument. This lowers the memory footprint of the program. Unnecessary duplicate variables aren't created. The function can modify the variable's value directly. Any modifications to the variable in the function affect the variable here in this scope too.
+In C++, variables are passed to a function by value. When calling a function with an argument, a new variable is instantiated internally and assigned the value passed in the function call. Any modifications to the value inside the function are performed to this new variable; the variable that was invoked with the function call is unchanged. A function can be written to perform the same task but instead accept a pointer as the argument. This lowers the memory footprint of the program. Unnecessary duplicate variables aren't created. The function can modify the variable's value directly. Any modifications to the variable in the function affect the variable here in this scope too.
 ```c++
 void setValue(int* x) {
     *x = 5;
@@ -54,20 +67,6 @@ void setValue(int* x) {
 
 int x = 3;
 setValue(&x); // Pass the memory address
-std::cout << "The value of x is " << x << ", setValue() modified x." << std::endl;
-// Outputs: The value of x is 5, setValue() modified x
-```
-
-In C++ (not in C), you can pass a variable by reference by passing in a variable,
-and defining the function's parameter like `int& x`. Any modifications to the variable inside the function will also affect the variable here in this scope too.
-
-```c++
-void setValue(int& x) {
-    x = 5;
-}
-
-int x = 3;
-setValue( x );
 std::cout << "The value of x is " << x << ", setValue() modified x." << std::endl;
 // Outputs: The value of x is 5, setValue() modified x
 ```
@@ -82,7 +81,7 @@ The `extern` keyword specifies that a variable, function, or template is defined
 The `auto` keyword tells the compiler to define by itself the variable type when its created.
 
 ### `const`
-Declaring a member function with the `const` keyword specifies that the function is a "read-only" function that does not modify the object for which it is called. A constant member function cannot modify any non-static data members or call any member functions that aren't constant.
+variables declared with `const` added become constants and cannot be altered by the program.
 
 
 ## Preprocessor derictives
@@ -166,3 +165,6 @@ private:
 
 ### Pointers and Classes
 Objects can also be pointed to by pointers: Once declared, a class becomes a valid type, so it can be used as the type pointed to by a pointer. Similarly as with plain data structures, the members of an object can be accessed directly from a pointer by using the arrow operator (`->`).
+
+### Objects and Methods `const`
+`const` objects are limited to access only member functions marked as `const`. Declaring a member function with the `const` keyword specifies that the function is a "read-only" function that does not modify the object for which it is called. A constant member function can only modify static data members and call only constant member functions.
