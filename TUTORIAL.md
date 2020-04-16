@@ -109,7 +109,7 @@ The `#error` directive aborts the compilation process when it is found, generati
 
 
 ## Classes
-Classes are an expanded concept of data structures: like data structures, they can contain data members, but they can also contain functions as members. An object is an instantiation of a class. In terms of variables, a class would be the type, and an object would be the variable. To create a class, use the `class` keyword:
+Classes are an expanded concept of data structures: like data structures, they can contain data members, but they can also contain methods as members. An object is an instantiation of a class. In terms of variables, a class would be the type, and an object would be the variable. To create a class, use the `class` keyword:
 ```C++
 class MyClass {            // The class
 public:                    // Access specifier
@@ -119,7 +119,7 @@ public:                    // Access specifier
 ```
 
 ### Access specifier
-Classes have the same format as plain data structures, except that they can also include functions and have these new things called access specifiers. An access specifier is one of the following three keywords: private, public or protected. These specifiers modify the access rights for the members that follow them:
+Classes have the same format as plain data structures, except that they can also include methods and have these new things called access specifiers. An access specifier is one of the following three keywords: private, public or protected. These specifiers modify the access rights for the members that follow them:
 - `public` - members are accessible from outside the class
 - `private` - members cannot be accessed (or viewed) from outside the class
 - `protected` - members cannot be accessed from outside the class, however, they can be accessed in inherited classes.
@@ -149,7 +149,7 @@ void MyClass::myMethod() {
 ```
 
 ### Constructor
-A class can include a special function called its **constructor**, which is automatically called whenever a new object of this class is created, allowing the class to initialize member variables or allocate storage. This constructor function is declared just like a regular member function, but with a name that matches the class name and without any return type; not even `void`.
+A class can include a special method called its **constructor**, which is automatically called whenever a new object of this class is created, allowing the class to initialize member variables or allocate storage. This constructor method is declared just like a regular method, but with a name that matches the class name and without any return type; not even `void`.
 ```C++
 class Person {
 public:
@@ -166,10 +166,10 @@ private:
 ### Pointers and classes
 Objects can also be pointed to by pointers: Once declared, a class becomes a valid type, so it can be used as the type pointed to by a pointer. Similarly as with plain data structures, the members of an object can be accessed directly from a pointer by using the arrow operator (`->`).
 
-### Objects and member functions `const`
-`const` objects are limited to access only member functions marked as `const`. Declaring a member function with the `const` keyword specifies that the function is a "read-only" function that does not modify the object for which it is called. A constant member function can only modify static data members and call only constant member functions. Note that `const` can be used to qualify the type returned by a member function. This `const` is not the same as the one which specifies a member as `const`. Both are independent and are located at different places in the function declaration:
+### Objects and methods `const`
+`const` objects are limited to access only methods marked as `const`. Declaring a method with the `const` keyword specifies that the function is a "read-only" function that does not modify the object for which it is called. A constant method can only modify static data members and call only other constant methods. Note that `const` can be used to qualify the type returned by a method. This `const` is not the same as the one which specifies a member as `const`. Both are independent and are located at different places in the method declaration:
 ```C++
-int get() const {return x;}         // const member function
-const int get() {return x;}         // member function returning a const
-const int get() const {return x;}   // const member function returning a const
+int get() const {return x;}         // const method
+const int get() {return x;}         // method returning a const
+const int get() const {return x;}   // const method returning a const
 ```
