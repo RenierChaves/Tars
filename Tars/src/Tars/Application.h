@@ -4,8 +4,7 @@
 
 namespace Tars {
 
-	class TARS_API Application
-	{
+	class TARS_API Application {
 	public:
 		Application();
 		virtual ~Application();

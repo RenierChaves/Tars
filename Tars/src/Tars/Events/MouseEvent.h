@@ -8,7 +8,7 @@ namespace Tars {
 
 	class TARS_API MousedMovedEvent : public Event {
 	public:
-		float MouseMovedEvent(float x, float y) {
+		MousedMovedEvent(float x, float y) {
 			m_MouseX = x;
 			m_MouseY = y;
 		}

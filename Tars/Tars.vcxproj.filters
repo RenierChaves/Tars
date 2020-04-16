@@ -4,6 +4,9 @@
     <Filter Include="Tars">
       <UniqueIdentifier>{1FCB8C7C-0B02-8E0D-B4EE-7310A0040A0F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tars\Events">
+      <UniqueIdentifier>{23DE4802-8F93-C1F7-1888-BBCE843CB8FB}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Tars.h" />
@@ -16,13 +19,21 @@
     <ClInclude Include="src\Tars\EntryPoint.h">
       <Filter>Tars</Filter>
     </ClInclude>
+    <ClInclude Include="src\Tars\Events\ApplicationEvent.h">
+      <Filter>Tars\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tars\Events\Event.h">
+      <Filter>Tars\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tars\Events\KeyEvent.h">
+      <Filter>Tars\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tars\Events\MouseEvent.h">
+      <Filter>Tars\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Tars\Log.h">
       <Filter>Tars</Filter>
     </ClInclude>
-    <ClInclude Include="src\Tars\Events\Event.h" />
-    <ClInclude Include="src\Tars\Events\KeyEvent.h" />
-    <ClInclude Include="src\Tars\Events\MouseEvent.h" />
-    <ClInclude Include="src\Tars\Events\ApplicationEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Tars\Application.cpp">
