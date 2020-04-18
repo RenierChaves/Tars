@@ -1,9 +1,9 @@
 #pragma once
 
+
 #include "Tars/Core.h"
 
-#include <string>
-#include <functional>
+
 
 namespace Tars {
 
@@ -74,6 +74,5 @@ namespace Tars {
 
 	inline std::ostream& operator<<(std::ostream& os, const Event& e) {
 		return os << e.ToString();
-	}
-
+	}	
 }

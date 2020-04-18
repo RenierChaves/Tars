@@ -1,8 +1,8 @@
 #pragma once
 
+
 #include "Event.h"
 
-#include <sstream>
 
 namespace Tars {
 	class TARS_API KeyEvent : public Event {

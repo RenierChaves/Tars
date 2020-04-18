@@ -34,6 +34,7 @@
     <ClInclude Include="src\Tars\Log.h">
       <Filter>Tars</Filter>
     </ClInclude>
+    <ClInclude Include="src\tarspch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Tars\Application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\Tars\Log.cpp">
       <Filter>Tars</Filter>
     </ClCompile>
+    <ClCompile Include="src\tarspch.cpp" />
   </ItemGroup>
 </Project>

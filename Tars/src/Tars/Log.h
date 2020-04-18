@@ -1,6 +1,6 @@
 #pragma once
 
-#include <memory>
+#include "tarspch.h"
 
 #include "Core.h"
 #include "spdlog/spdlog.h"
