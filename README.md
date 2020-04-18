@@ -1,3 +1,3 @@
 # Tars
-![Tars](/Resources/Branding/TarsEngineLogo.png?raw=true "Tars")
+![Tars](/Resources/Branding/TarsEngineLogoOfficial.png?raw=true "Tars")
 Tars Engine
