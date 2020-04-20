@@ -35,6 +35,8 @@
       <Filter>Tars</Filter>
     </ClInclude>
     <ClInclude Include="src\tarspch.h" />
+    <ClInclude Include="src\Tars\Window.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Tars\Application.cpp">
@@ -44,5 +46,6 @@
       <Filter>Tars</Filter>
     </ClCompile>
     <ClCompile Include="src\tarspch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>

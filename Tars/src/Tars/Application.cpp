@@ -4,10 +4,12 @@
 #include "Events/ApplicationEvent.h"
 #include "Log.h"
 
+#include <GLFW/glfw3.h>
+
 namespace Tars {
 
 	Application::Application() {
-
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application() {
@@ -15,23 +17,10 @@ namespace Tars {
 	}
 
 	void Application::Run() {
-		WindowResizeEvent e(1280, 720);
-		std::stringstream test;
-		test << "IsInCategory: " << e.IsInCategory(EventCategoryApplication);
-		if (e.IsInCategory(EventCategoryApplication)) {
-			TARS_TRACE(e);
-			TARS_TRACE(test.str());
-			TARS_TRACE(e.GetEventType());
-			TARS_TRACE(e.GetCategoryFlags());
-			TARS_TRACE(e.GetName());
-			TARS_TRACE(e.GetWidth());
-			TARS_TRACE(e.GetHeight());
+		while (m_Running) {
+			glClearColor(1, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+			m_Window->OnUpdate();
 		}
-		if (e.IsInCategory(EventCategoryInput)) {
-			TARS_TRACE(e);
-		}
-		while (true);
 	}
-
-
 }

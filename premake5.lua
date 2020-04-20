@@ -9,6 +9,11 @@ workspace "Tars"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Tars/vendor/GLFW/include"
+
+include "Tars/vendor/GLFW"
+
 project "Tars"
 	location "Tars"
 	kind "SharedLib"
@@ -27,7 +32,13 @@ project "Tars"
 
 	includedirs{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

@@ -4,6 +4,7 @@
 
 
 namespace Tars {
+
 	class TARS_API WindowResizeEvent : public Event {
 	public:
 		WindowResizeEvent(unsigned int width, unsigned int height)
