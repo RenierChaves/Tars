@@ -6,10 +6,12 @@
 
 namespace Tars {
 
+	// Abstract class KeyEvent.
 	class TARS_API KeyEvent : public Event {
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
 
+		// Overrides the public members functions from Event.
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 	protected:
 		KeyEvent(int keycode) 
