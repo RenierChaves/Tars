@@ -57,14 +57,17 @@ project "Tars"
 
 		filter "configurations:Debug"
 			defines "TARS_DEBUG"
+			buildoptions "/MDd"
 			symbols "On"
 
 		filter "configurations:Release"
 			defines "TARS_RELEASE"
+			buildoptions "/MD"
 			optimize "On"
 
 		filter "configurations:Dist"
 			defines "TARS_DIST"
+			buildoptions "/MD"
 			optimize "On"
 
 project "SandBox"
@@ -100,12 +103,15 @@ project "SandBox"
 
 		filter "configurations:Debug"
 			defines "TARS_DEBUG"
+			buildoptions "/MDd"
 			symbols "On"
 
 		filter "configurations:Release"
 			defines "TARS_RELEASE"
+			buildoptions "/MD"
 			optimize "On"
 
 		filter "configurations:Dist"
 			defines "TARS_DIST"
+			buildoptions "/MD"
 			optimize "On"

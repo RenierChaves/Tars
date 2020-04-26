@@ -38,9 +38,8 @@ namespace Tars {
 	
 	// Abstract class Event.
 	class TARS_API Event {
-		friend class EventDispatcher;
-
 	public:
+		bool Handled = false;
 		virtual EventType GetEventType() const = 0;		// Return EventType number (int)
 		virtual const char* GetName() const = 0;		// Return Name from EventType (string)
 		virtual int GetCategoryFlags() const = 0;		// Return EventCategory Flag (int)
@@ -49,9 +48,6 @@ namespace Tars {
 		inline bool IsInCategory(EventCategory category) {
 			return GetCategoryFlags() & category;
 		}
-
-	protected:
-		bool m_Handled = false;
 	};
 
 	class EventDispatcher {
@@ -64,7 +60,7 @@ namespace Tars {
 		template<typename T>
 		bool Dispatch(EventFn<T> func) {
 			if (m_Event.GetEventType() == T::GetStaticType()) {
-				m_Event.m_Handled = func(*(T*)&m_Event);
+				m_Event.Handled = func(*(T*)&m_Event);
 				return true;
 			}
 			return false;

@@ -23,6 +23,8 @@ namespace Tars {
 	class TARS_API Window {
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
+		// EventCallbackFn is new type, that stores a function that receives
+		// a Event& as a parameter and return void.
 
 		virtual ~Window() {}
 		

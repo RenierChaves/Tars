@@ -84,6 +84,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -109,6 +110,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -135,6 +137,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -158,13 +161,17 @@
     <ClInclude Include="src\Tars\Events\Event.h" />
     <ClInclude Include="src\Tars\Events\KeyEvent.h" />
     <ClInclude Include="src\Tars\Events\MouseEvent.h" />
+    <ClInclude Include="src\Tars\Layer.h" />
+    <ClInclude Include="src\Tars\LayerStack.h" />
     <ClInclude Include="src\Tars\Log.h" />
-    <ClInclude Include="src\tarspch.h" />
     <ClInclude Include="src\Tars\Window.h" />
+    <ClInclude Include="src\tarspch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Tars\Application.cpp" />
+    <ClCompile Include="src\Tars\Layer.cpp" />
+    <ClCompile Include="src\Tars\LayerStack.cpp" />
     <ClCompile Include="src\Tars\Log.cpp" />
     <ClCompile Include="src\tarspch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

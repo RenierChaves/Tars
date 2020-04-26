@@ -35,6 +35,8 @@ namespace Tars {
 			bool VSync;
 
 			EventCallbackFn EventCallback;
+			// Because EventCallback is an EventCallbackFn type variable, when you
+			// call, it will run the function that EventCallback is storing.
 		};
 
 		WindowData m_Data;
