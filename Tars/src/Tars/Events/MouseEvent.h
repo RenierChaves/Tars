@@ -64,6 +64,7 @@ namespace Tars {
 	};
 
 	class TARS_API MouseButtonPressedEvent : public MouseButtonEvent {
+	public:
 		MouseButtonPressedEvent(int button)
 			: MouseButtonEvent(button) {}
 
