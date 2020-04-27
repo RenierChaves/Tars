@@ -11,8 +11,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Tars/vendor/GLFW/include"
+IncludeDir["Glad"] = "Tars/vendor/Glad/include"
 
 include "Tars/vendor/GLFW"
+include "Tars/vendor/Glad"
 
 project "Tars"
 	location "Tars"
@@ -33,11 +35,13 @@ project "Tars"
 	includedirs{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -48,7 +52,8 @@ project "Tars"
 
 		defines{
 			"TARS_PLATFORM_WINDOWS",
-			"TARS_BUILD_DLL"
+			"TARS_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands{
