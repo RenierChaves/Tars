@@ -19,6 +19,7 @@ class SandBox : public Tars::Application {
 public:
 	SandBox() {
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Tars::ImGuiLayer());
 	}
 
 	~SandBox() {
